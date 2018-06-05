@@ -13,21 +13,30 @@ public class StudentService {
     @Autowired
     private StudentRepo sr;
 
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return sr.findAll();
     }
 
-    public Optional<Student> getStudent(int id){
+    public Optional<Student> getStudent(int id) {
         return sr.findById(id);
     }
-    public void addUser(Student userRecord){
-        sr.save(userRecord);
-    }
-    public void delete(Integer id){
-        sr.deleteById(id);
+
+    public Integer addUser(Student userRecord) {
+        Student ret = sr.save(userRecord);
+        return ret.getId();
     }
 
-    public List<Student> getByAverage(Float f){
+    public Boolean delete(Integer id) {
+        try {
+            sr.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public List<Student> getByAverage(Float f) {
 //        sr.deleteById(id);
         return null;
     }
