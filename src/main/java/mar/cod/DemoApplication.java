@@ -18,6 +18,6 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("------------------------------------------: HUA");
-		System.exit(0);
+//		System.exit(0);
 	}
 }
