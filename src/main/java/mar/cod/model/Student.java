@@ -42,14 +42,5 @@ public class Student {
     public void setAverage(Float average) {
         this.average = average;
     }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", average=" + average +
-                '}';
-    }
 }
 
