@@ -47,9 +47,14 @@ public class Control {
         return    ss.delete(id);
     }
 
-    public List<Student> getByAverage(Float f) {
-//        sr.deleteById(id);
-        return null;
+
+    @GetMapping("/avgstudent/{from}/{to}")
+    public List<Student> getByAverageRange (@PathVariable("from") Float from, @PathVariable("to")Float to){
+        return ss.getByAverage(from, to);
     }
 
+    @GetMapping("/namstudent/{name}")
+    public List<Student> getByName(@PathVariable ("name") String name){
+        return ss.getByName(name);
+    }
 }

@@ -36,8 +36,12 @@ public class StudentService {
         }
     }
 
-    public List<Student> getByAverage(Float f) {
-//        sr.deleteById(id);
-        return null;
+    public List<Student> getByAverage(Float from, Float to) {
+        return  sr.findByAverageBetweenOrderById(from, to);
+    }
+
+    public List<Student> getByName(String name) {
+        List<Student> ret = sr.findByNameContaining(name);
+        return ret;
     }
 }

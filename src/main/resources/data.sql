@@ -1,3 +1,6 @@
 INSERT INTO Student (id, name,average) VALUES (1,'Mario',9.7)
 INSERT INTO Student (id, name,average) VALUES (2,'Mario2',7.3)
 INSERT INTO Student (id, name,average) VALUES (3,'Mario3',8.6)
+INSERT INTO Student (id, name,average) VALUES (11,'Mario',5.7)
+INSERT INTO Student (id, name,average) VALUES (22,'Mario21',7.8)
+INSERT INTO Student (id, name,average) VALUES (33,'Mario32',8.7)
