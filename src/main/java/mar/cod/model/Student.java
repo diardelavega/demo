@@ -1,22 +1,26 @@
 package mar.cod.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student {
     @Id @GeneratedValue
-    Integer id;
-    String name;
-    Float average;
+    private Integer id;
+    private String name;
+    private Float average;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "STUDENT_ID")
+    private Thesis thesisFK;
+
 
     public Student() {
     }
 
-    public Student(String name, Float average) {
+    public Student(String name, Float average, Thesis thesisFK) {
         this.name = name;
         this.average = average;
+        this.thesisFK = thesisFK;
     }
 
     public Integer getId() {
@@ -41,6 +45,14 @@ public class Student {
 
     public void setAverage(Float average) {
         this.average = average;
+    }
+
+    public Thesis getThesisFK() {
+        return thesisFK;
+    }
+
+    public void setThesisFK(Thesis thesisFK) {
+        this.thesisFK = thesisFK;
     }
 }
 
