@@ -46,7 +46,6 @@ public class OldMatch  {
         this._u = _u;
         this.dat = dat;
     }
-
     public Long getMid() {
         return mid;
     }
