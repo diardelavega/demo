@@ -4,13 +4,14 @@ import javax.persistence.*;
 
 @Entity
 public class Student {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Integer id;
     private String name;
     private Float average;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "STUDENT_ID")
+    @JoinColumn(name = "TITLE_ID")
     private Thesis thesisFK;
 
 
@@ -46,6 +47,7 @@ public class Student {
     public void setAverage(Float average) {
         this.average = average;
     }
+
 
     public Thesis getThesisFK() {
         return thesisFK;

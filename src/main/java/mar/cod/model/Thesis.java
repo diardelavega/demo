@@ -7,31 +7,20 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Thesis {
-    @Id @GeneratedValue
-    private String titleId;
-
+    @Id
     private String title;
-
     private Integer pages;
 
-@OneToOne(mappedBy = "thesisFK")
-    private Long studentId;
+    @OneToOne(mappedBy = "thesisFK")
+    private Student student_Id;
 
     public Thesis() {
     }
 
-    public Thesis(String title, Integer pages, Long studentId) {
+    public Thesis(String title, Integer pages, Student student_Id) {
         this.title = title;
         this.pages = pages;
-        this.studentId = studentId;
-    }
-
-    public String getTitleId() {
-        return titleId;
-    }
-
-    public void setTitleId(String titleId) {
-        this.titleId = titleId;
+        this.student_Id = student_Id;
     }
 
     public String getTitle() {
@@ -50,11 +39,11 @@ public class Thesis {
         this.pages = pages;
     }
 
-    public Long getStudentId() {
-        return studentId;
+    public Student getStudent_Id() {
+        return student_Id;
     }
 
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
+    public void setStudent_Id(Student student_Id) {
+        this.student_Id = student_Id;
     }
 }
