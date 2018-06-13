@@ -3,6 +3,7 @@ package mar.mysql.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Odds {
@@ -46,7 +47,8 @@ public class Odds {
     private Float _t1st2= new Float(1.0);//t1 Score same t2 Score
 
 
-
+    @OneToOne()
+    private Match match;
 
     public Odds() {
     }

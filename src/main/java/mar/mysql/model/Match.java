@@ -23,6 +23,7 @@ public class Match {
     private LocalTime time;
 
     @OneToOne
+    @JoinColumn(name = "ODDS")
     private Odds odd;
 
     public Match() {
