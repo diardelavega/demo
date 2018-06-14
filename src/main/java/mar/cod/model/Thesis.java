@@ -1,9 +1,6 @@
 package mar.cod.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Thesis {
@@ -11,16 +8,23 @@ public class Thesis {
     private String title;
     private Integer pages;
 
-    @OneToOne(mappedBy = "thesisFK")
+//    @OneToOne(mappedBy = "thesisFK")
+    @OneToOne
+    @JoinColumn(name = "thesisFK")
     private Student student_Id;
 
     public Thesis() {
     }
 
-    public Thesis(String title, Integer pages, Student student_Id) {
+//    public Thesis(String title, Integer pages, Student student_Id) {
+//        this.title = title;
+//        this.pages = pages;
+//        this.student_Id = student_Id;
+//    }
+
+    public Thesis(String title, Integer pages) {
         this.title = title;
         this.pages = pages;
-        this.student_Id = student_Id;
     }
 
     public String getTitle() {
@@ -45,5 +49,14 @@ public class Thesis {
 
     public void setStudent_Id(Student student_Id) {
         this.student_Id = student_Id;
+    }
+
+    @Override
+    public String toString() {
+        return "Thesis{" +
+                "title='" + title + '\'' +
+                ", pages=" + pages +
+//                ", student_Id=" + student_Id +
+                '}';
     }
 }

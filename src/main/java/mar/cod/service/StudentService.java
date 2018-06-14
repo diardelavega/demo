@@ -37,11 +37,16 @@ public class StudentService {
     }
 
     public List<Student> getByAverage(Float from, Float to) {
-        return  sr.findByAverageBetweenOrderById(from, to);
+        return sr.findByAverageBetweenOrderById(from, to);
     }
 
     public List<Student> getByName(String name) {
         List<Student> ret = sr.findByNameContaining(name);
         return ret;
     }
+
+    public void updateStudent(Student s) {
+        sr.save(s);
+    }
+
 }

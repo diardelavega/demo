@@ -10,7 +10,7 @@ public class Student {
     private String name;
     private Float average;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "TITLE_ID")
     private Thesis thesisFK;
 

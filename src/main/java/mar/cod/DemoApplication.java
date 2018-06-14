@@ -32,17 +32,28 @@ public class DemoApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("------------------------------------------: HUA");
 
-        Optional<Student> s1 = ss.getStudent(1);
-        Optional<Student> s2 = ss.getStudent(22);
+        Thesis t1 = new Thesis("Thesis 1", 80);
+        Thesis t2 = new Thesis("Thesis 2", 89);
 
-        Thesis t1 = new Thesis("Thesis 1", 80, s1.get());
-        Thesis t2 = new Thesis("Thesis 2", 89, s2.get());
+		Optional<Student> s1 = ss.getStudent(1);
+		Optional<Student> s2 = ss.getStudent(22);
+		s1.get().setThesisFK(t1);
+		s2.get().setThesisFK(t2);
 
         tr.save(t1);
         tr.save(t2);
 
+        ss.updateStudent(s1.get());
+        ss.updateStudent(s2.get());
+
+        t1.setStudent_Id(s1.get());
+        t2.setStudent_Id(s2.get());
+        tr.save(t1);
+        tr.save(t2);
+
+
         for(Thesis t:tr.findAll())
-            t.toString();
+          System.out.println( t.toString());
 //		System.exit(0);
     }
 }
