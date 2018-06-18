@@ -1,6 +1,8 @@
 package mar.cod.model;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 public class Student {
@@ -14,6 +16,9 @@ public class Student {
     @JoinColumn(name = "TITLE_ID")
     private Thesis thesisFK;
 
+    @ManyToMany
+    Collection<Lesson> lessons;
+
 
     public Student() {
     }
@@ -22,6 +27,13 @@ public class Student {
         this.name = name;
         this.average = average;
         this.thesisFK = thesisFK;
+    }
+
+    public Student(String name, Float average, Thesis thesisFK, Collection<Lesson> lessons) {
+        this.name = name;
+        this.average = average;
+        this.thesisFK = thesisFK;
+        this.lessons = lessons;
     }
 
     public Integer getId() {
@@ -55,6 +67,25 @@ public class Student {
 
     public void setThesisFK(Thesis thesisFK) {
         this.thesisFK = thesisFK;
+    }
+
+    public Collection<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(Collection<Lesson> lessons) {
+        this.lessons = lessons;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", average=" + average +
+                ", thesisFK=" + thesisFK +
+                ", lessons=" + (lessons != null ? lessons : null) +
+                '}';
     }
 }
 
