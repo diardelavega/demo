@@ -16,7 +16,8 @@ public class Student {
     @JoinColumn(name = "TITLE_ID")
     private Thesis thesisFK;
 
-    @ManyToMany
+    @ManyToMany()
+            @JoinTable(name = "lesson_students", joinColumns = { @JoinColumn(name = "students_id") },inverseJoinColumns = { @JoinColumn(name = "lesson_id") })
     Collection<Lesson> lessons;
 
 
