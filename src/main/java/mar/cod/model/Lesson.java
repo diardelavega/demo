@@ -9,7 +9,7 @@ public class Lesson {
     @GeneratedValue
     private Long id;
     private String lecturer;
-    @ManyToMany
+    @ManyToMany( mappedBy = "lessons")
     Collection<Student> students=null;
 
     public Lesson() {

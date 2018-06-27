@@ -17,7 +17,7 @@ public class Student {
     private Thesis thesisFK;
 
     @ManyToMany
-    Collection<Lesson> lessons=null;
+    Collection<Lesson> lessons;
 
 
     public Student() {
